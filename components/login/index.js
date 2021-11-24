@@ -169,8 +169,9 @@ const Login = () => {
                       top="50%"
                       transform="translateY(-50%)"
                       justifyContent="initial"
-                      children={<LockIcon color="gray.300" />}
-                    />
+                    >
+                      <LockIcon color="gray.300" />
+                    </InputLeftElement>
                     <Input
                       type="password"
                       placeholder="password"
