@@ -1,0 +1,131 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: white !important;
+  background: black !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.pagination li {
+  margin: 5px;
+  list-style-type: none;
+  user-select: none;
+}
+.pagination li a {
+  background: rgb(27, 27, 27);
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.pagination li a:hover {
+  background: #131417;
+}
+.pagination .active_page a {
+  background: #c32b2b;
+}
+.pagination .disabled a {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.pagination .disabled a:hover {
+  background: rgb(27, 27, 27);
+}
+
+@media only screen and (max-width: 320px) {
+  .grid_cars {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .cart_flex {
+    flex-wrap: wrap;
+  }
+
+  .feauter_width {
+    width: 100% !important;
+  }
+
+  .heading_intro {
+    font-size: 30px !important;
+  }
+  .image_intro {
+    display: none;
+  }
+  .height_intro {
+    height: 60vh !important;
+    min-height: 50vh !important;
+  }
+}
+
+@media only screen and (max-width: 450px) and (min-width: 330px) {
+  .heading_intro {
+    font-size: 30px !important;
+  }
+  .image_intro {
+    display: none;
+  }
+  .height_intro {
+    height: 60vh !important;
+    min-height: 50vh !important;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .grid_cars {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .feauter_width {
+    width: 100% !important;
+  }
+}
+
+/* @media only screen and (max-width: 599px) and (min-width: 481px) {
+  .grid_cars {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+} */
+
+@media only screen and (max-width: 768px) and (min-width: 721px) {
+  .grid_cars {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .feauter_width {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 768px) {
+  .grid_cars {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .feauter_width {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
