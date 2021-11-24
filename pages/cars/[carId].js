@@ -90,6 +90,7 @@ const Car = ({ data }) => {
                 src={data.product_image}
                 borderRadius={["15px 15px 0 0", "", "0 15px 15px 0", ""]}
                 w={["100%", "", "40%", ""]}
+                alt="car"
               />
             </Flex>
           }
@@ -112,7 +113,7 @@ const Car = ({ data }) => {
           />
           <ModalBody>
             <Flex flexDir="column" alignItems="center" justifyContent="center">
-              <Image src="/working.png" />
+              <Image src="/working.png" alt="working on it " />
               <Heading
                 as="h3"
                 color="white"

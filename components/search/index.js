@@ -76,7 +76,7 @@ const Search = ({ ulShadow, searchBorder }) => {
       >
         {filteration.map((e, i) => {
           return (
-            <Link href={`/cars/${e.id}`} key={Math.random()}>
+            <Link href={`/cars/${e.id}`} key={Math.random()} passHref>
               <L textDecoration="none !important">
                 <ListItem
                   listStyleType="none"

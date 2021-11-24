@@ -24,6 +24,7 @@ const Feauter = ({ text, heading, img, dir }) => {
         className="feauter_width"
         w="50%"
         objectFit="cover"
+        alt="feauter"
       />
     </Flex>
   );

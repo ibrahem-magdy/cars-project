@@ -100,7 +100,7 @@ const SignButton = ({ name, sign, img, ...props }) => {
       justifyContent="center"
       textTransform="uppercase"
     >
-      <Image src={img} mr="15px" w="30px" h="30px" />
+      <Image src={img} mr="15px" w="30px" h="30px" alt="" />
       {name}
     </Button>
   );
@@ -156,9 +156,6 @@ const Forms = () => {
           }}
           validationSchema={SignupSchema}
           onSubmit={(values, actions) => {
-            // setSignupEmail(values.email);
-            // setSignupPassword(values.password);
-
             signUp(values.email, values.password);
             actions.setSubmitting(false);
           }}
@@ -380,6 +377,7 @@ const Forms = () => {
         src="car3bg.jpg"
         w={["100%", "", "", "55%"]}
         borderRadius="0 15px 15px 0"
+        alt="car"
       />
     </Flex>
   );

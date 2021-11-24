@@ -37,6 +37,7 @@ const Brands = () => {
                     objectFit="cover"
                     _hover={{ opacity: "1" }}
                     m="15px"
+                    alt="brand"
                   />
                 );
               })}

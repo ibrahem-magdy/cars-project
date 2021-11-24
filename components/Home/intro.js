@@ -58,6 +58,7 @@ const Intro = () => {
             left="35%"
             zIndex="1"
             className="image_intro"
+            alt="car"
           />
 
           <Box

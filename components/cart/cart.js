@@ -40,6 +40,7 @@ const Cart = ({ date, img, name, id, price, model }) => {
           mb={["15px", "0", "", ""]}
           maxH={["234px", "initial", "", ""]}
           objectFit="cover"
+          alt="car"
         />
 
         <Flex
@@ -67,7 +68,7 @@ const Cart = ({ date, img, name, id, price, model }) => {
         justifyContent={["center", "initial", "", ""]}
         w={["100%", "initial", "", ""]}
       >
-        <Link href={`/cars/${id}`}>
+        <Link href={`/cars/${id}`} passHref>
           <L
             me="20px"
             bg="black"

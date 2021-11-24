@@ -223,7 +223,7 @@ const Login = () => {
               </Button>
               <Text textAlign="center" mt="20px" fontSize="18px">
                 Not a member?
-                <Link href="/signup">
+                <Link href="/signup" passHref>
                   <L color="#a52222">Signup now</L>
                 </Link>
               </Text>

@@ -40,7 +40,7 @@ const Home = ({ cars }) => {
               );
             })}
           </Box>
-          <Link href="/cars">
+          <Link href="/cars" passHref>
             <L
               display="block"
               m="auto"
