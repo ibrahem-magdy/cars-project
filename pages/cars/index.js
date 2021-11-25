@@ -96,7 +96,7 @@ const Cars = ({ cars, count, lim }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const limit = 6;
   const respone = await fetch(
     `http://localhost:3000/api/products?limit=${limit}&page=1`

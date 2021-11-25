@@ -54,7 +54,6 @@ const Search = ({ ulShadow, searchBorder }) => {
         fontSize="18px"
         px="10px"
         bg="rgb(27,27,27)"
-        border="2px solid gray"
         color="white"
         borderRadius="5px"
         transition=".3s"
