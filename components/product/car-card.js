@@ -14,9 +14,20 @@ import { CarContext } from "../../userContext";
 
 const CarCard = ({ img, name, price, url, model, added }) => {
   const [add, setAdd] = useState();
+  const [present, setPresent] = useState(false);
+
   const router = useRouter();
-  const { addCar } = useContext(CarContext);
+  const { cars, addCar } = useContext(CarContext);
   console.log(addCar);
+
+  useEffect((e) => {
+    cars.map((e) => {
+      if (e.id == url) {
+        setPresent(true);
+      }
+    });
+  }, []);
+
   function getDate() {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, "0");
@@ -95,13 +106,13 @@ const CarCard = ({ img, name, price, url, model, added }) => {
         bg="#222221"
         color="white"
         letterSpacing="1px"
-        cursor={added == "true" || add ? "not-allowed" : "pointer"}
-        opacity={added == "true" || add ? ".5" : "1"}
+        cursor={present || add ? "not-allowed" : "pointer"}
+        opacity={present || add ? ".5" : "1"}
         _hover={{
           bg: "#222229",
         }}
         onClick={() => {
-          addCar(url);
+          addCar(url, img, name, getDate());
           setAdd(true);
           update(url, {
             id: url,
@@ -113,7 +124,7 @@ const CarCard = ({ img, name, price, url, model, added }) => {
           });
         }}
       >
-        {added == "true" || add ? "Added to cart" : "Add to cart "}
+        {present || add ? "Added to cart" : "Add to cart "}
       </Button>
     </Box>
   );

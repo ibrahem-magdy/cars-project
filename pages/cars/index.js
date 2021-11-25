@@ -1,12 +1,4 @@
-import {
-  Box,
-  Link as L,
-  Input,
-  Flex,
-  Text,
-  Button,
-  Heading,
-} from "@chakra-ui/react";
+import { Box, Link as L, Text } from "@chakra-ui/react";
 import { CarCard } from "components/product";
 import Container from "components/shared/container";
 import { useState, useCallback, useEffect } from "react";
@@ -25,10 +17,9 @@ const Cars = ({ cars, count, lim }) => {
     setpageCount(count);
   }, [limit]);
 
-  const fetchComments = async (currentPage) => {
+  const fetchCars = async (currentPage) => {
     const res = await fetch(
-      `http://localhost:4000/products?_page=${currentPage}&_limit=${limit}`
-      // `https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${limit}`
+      `http://localhost:3000/api/products?page=${currentPage}&limit=${limit}`
     );
     const data = await res.json();
     return data;
@@ -37,9 +28,9 @@ const Cars = ({ cars, count, lim }) => {
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
 
-    const commentsFormServer = await fetchComments(currentPage);
+    const carsFromServer = await fetchCars(currentPage);
 
-    setItems(commentsFormServer);
+    setItems(carsFromServer);
   };
   const router = useRouter();
 
@@ -107,10 +98,12 @@ const Cars = ({ cars, count, lim }) => {
 
 export const getStaticProps = async () => {
   const limit = 6;
-  const respone = await fetch(`http://localhost:4000/products?_limit=${limit}`);
+  const respone = await fetch(
+    `http://localhost:3000/api/products?limit=${limit}&page=1`
+  );
   const cars = await respone.json();
   const total = respone.headers.get("x-total-count");
-  const count = Math.ceil(total / limit);
+  const count = Math.ceil(18 / limit);
 
   return {
     props: {

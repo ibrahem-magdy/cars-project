@@ -9,14 +9,14 @@ const Cart = ({ date, img, name, id, price, model }) => {
   const router = useRouter();
   const { removeCar } = useContext(CarContext);
 
-  const remove = async (data, id) => {
-    const res = await fetch(`http://localhost:4000/products/${id}`, {
-      method: "put",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    await router.push(`/${router.pathname}`);
-  };
+  // const remove = async (data, id) => {
+  //   const res = await fetch(`http://localhost:4000/products/${id}`, {
+  //     method: "put",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   });
+  //   await router.push(`/${router.pathname}`);
+  // };
 
   return (
     <Flex
@@ -97,17 +97,17 @@ const Cart = ({ date, img, name, id, price, model }) => {
           _hover={{ bg: "#a52222" }}
           onClick={() => {
             removeCar(id);
-            remove(
-              {
-                id,
-                product_image: img,
-                product_name: name,
-                product_price: price,
-                model: model,
-                added: { add: "false", date: "" },
-              },
-              id
-            );
+            // remove(
+            //   {
+            //     id,
+            //     product_image: img,
+            //     product_name: name,
+            //     product_price: price,
+            //     model: model,
+            //     added: { add: "false", date: "" },
+            //   },
+            //   id
+            // );
           }}
         >
           <CloseIcon fontSize="14px" />
