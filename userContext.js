@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const UserContext = createContext();
 const UserProvider = UserContext.Provider;
@@ -7,6 +7,12 @@ const UserConsumer = UserContext.Consumer;
 const CarContext = createContext();
 const CarProvider = CarContext.Provider;
 const CarConsumer = CarContext.Consumer;
+
+// const storage = () => {
+//   const store = localStorage.getItem("cars");
+
+//   return store;
+// };
 
 const User = ({ children }) => {
   const [user, setUser] = useState("");
@@ -22,22 +28,33 @@ const User = ({ children }) => {
 const Car = ({ children }) => {
   const [cars, setCars] = useState([]);
 
-  const addCar = (id) => {
-    console.log(typeof cars);
+  // useEffect(() => {
+  //   const storeCars = () => {
+  //     const storeCar = cars;
+  //     localStorage.setItem("cars", JSON.stringify(storeCar));
+  //   };
+  //   storeCars();
+  // }, [cars]);
 
-    setCars(new Set([...cars, id]));
+  const addCar = (id, img, name, date) => {
+    const currentCars = [...cars, { id, date, img, name }];
+
+    const filteredArr = Array.from(
+      currentCars.reduce((map, obj) => map.set(obj.id, obj), new Map()).values()
+    );
+
+    setCars(filteredArr);
   };
 
   const removeCar = (id) => {
     const currentCars = [...cars];
 
     const deletation = currentCars.filter((e) => {
-      return e != id;
+      return e.id != id;
     });
 
     setCars(deletation);
   };
-  console.log(cars);
 
   return (
     <CarProvider value={{ cars, addCar, removeCar }}>{children}</CarProvider>

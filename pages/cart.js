@@ -1,9 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import Container from "components/shared/container";
 import { Cart, Empty } from "components/cart";
+import { useContext } from "react";
+import { CarContext } from "userContext";
 
-const CartPage = ({ data }) => {
-  if (data.length == 0) {
+const CartPage = () => {
+  const { cars } = useContext(CarContext);
+
+  if (cars.length == 0) {
     return <Empty />;
   } else {
     return (
@@ -15,17 +19,10 @@ const CartPage = ({ data }) => {
             gridGap="15px"
             my="100px"
           >
-            {data.map((e) => {
+            {cars.map((e) => {
               return (
                 <Box key={e.id}>
-                  <Cart
-                    date={e.added.date}
-                    img={e.product_image}
-                    name={e.product_name}
-                    price={e.product_price}
-                    model={e.model}
-                    id={e.id}
-                  />
+                  <Cart date={e.date} img={e.img} name={e.name} id={e.id} />
                 </Box>
               );
             })}
@@ -36,13 +33,13 @@ const CartPage = ({ data }) => {
   }
 };
 
-export const getServerSideProps = async () => {
-  const response = await fetch("http://localhost:4000/products?added.add=true");
-  const data = await response.json();
-  return {
-    props: {
-      data,
-    },
-  };
-};
+// export const getServerSideProps = async () => {
+//   const response = await fetch("http://localhost:4000/products?added.add=true");
+//   const data = await response.json();
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// };
 export default CartPage;

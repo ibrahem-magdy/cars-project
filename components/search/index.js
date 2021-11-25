@@ -15,7 +15,10 @@ const fetcher = async (url) => {
 };
 
 const Search = ({ ulShadow, searchBorder }) => {
-  const { data, error } = useSWR("http://localhost:4000/products", fetcher);
+  const { data, error } = useSWR(
+    "http://localhost:3000/api/products?page=1&limit=18",
+    fetcher
+  );
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -51,12 +54,13 @@ const Search = ({ ulShadow, searchBorder }) => {
         fontSize="18px"
         px="10px"
         bg="rgb(27,27,27)"
-        boxShadow="0 0 -3px -1px white"
+        border="2px solid gray"
         color="white"
         borderRadius="5px"
         transition=".3s"
         border={searchBorder}
         ref={ref}
+        _focus={{ boxShadow: "none", borderColor: "white" }}
         onChange={(e) => {
           setOpen(true);
           setSearch(e.target.value);
@@ -77,7 +81,10 @@ const Search = ({ ulShadow, searchBorder }) => {
         {filteration.map((e, i) => {
           return (
             <Link href={`/cars/${e.id}`} key={Math.random()} passHref>
-              <L textDecoration="none !important">
+              <L
+                textDecoration="none !important"
+                _focus={{ boxShadow: "none" }}
+              >
                 <ListItem
                   listStyleType="none"
                   transition=".3s"

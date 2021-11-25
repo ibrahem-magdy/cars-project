@@ -6,12 +6,11 @@ import { Intro } from "components/Home";
 import { CarCard } from "components/product";
 import Container from "components/shared/container";
 import Link from "next/link";
-import { useContext } from "react";
-import { UserContext } from "../userContext";
+import { useContext, useEffect } from "react";
+import { UserContext, CarContext } from "../userContext";
 
 const Home = ({ cars }) => {
   const user = useContext(UserContext);
-
   return (
     <>
       <Intro />
@@ -72,7 +71,9 @@ const Home = ({ cars }) => {
 };
 
 export const getStaticProps = async () => {
-  const respone = await fetch("http://localhost:4000/products?_limit=6");
+  const respone = await fetch(
+    "http://localhost:3000/api/products?page=1&limit=6"
+  );
   const cars = await respone.json();
 
   return {
