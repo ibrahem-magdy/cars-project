@@ -9,12 +9,14 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useState, useEffect, useContext } from "react";
+import { CarContext } from "../../userContext";
 
-import { useState, useEffect } from "react";
 const CarCard = ({ img, name, price, url, model, added }) => {
   const [add, setAdd] = useState();
   const router = useRouter();
-
+  const { addCar } = useContext(CarContext);
+  console.log(addCar);
   function getDate() {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, "0");
@@ -99,6 +101,7 @@ const CarCard = ({ img, name, price, url, model, added }) => {
           bg: "#222229",
         }}
         onClick={() => {
+          addCar(url);
           setAdd(true);
           update(url, {
             id: url,

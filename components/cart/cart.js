@@ -1,10 +1,13 @@
 import { Box, Flex, Heading, Image, Text, Link as L } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import { CarContext } from "userContext";
+import { useContext } from "react";
 import Link from "next/link";
 
 const Cart = ({ date, img, name, id, price, model }) => {
   const router = useRouter();
+  const { removeCar } = useContext(CarContext);
 
   const remove = async (data, id) => {
     const res = await fetch(`http://localhost:4000/products/${id}`, {
@@ -92,7 +95,8 @@ const Cart = ({ date, img, name, id, price, model }) => {
           placeItems="center"
           borderRadius="5px"
           _hover={{ bg: "#a52222" }}
-          onClick={() =>
+          onClick={() => {
+            removeCar(id);
             remove(
               {
                 id,
@@ -103,8 +107,8 @@ const Cart = ({ date, img, name, id, price, model }) => {
                 added: { add: "false", date: "" },
               },
               id
-            )
-          }
+            );
+          }}
         >
           <CloseIcon fontSize="14px" />
         </Box>

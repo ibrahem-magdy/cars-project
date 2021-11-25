@@ -18,8 +18,6 @@ const Cars = ({ cars, count, lim }) => {
   const [items, setItems] = useState([]);
   const [pageCount, setpageCount] = useState(0);
   const [limit, setLimit] = useState(lim);
-  const [first, setFirst] = useState(false);
-  const [last, setLast] = useState(false);
 
   const realCount = count;
   useEffect(() => {
