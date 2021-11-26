@@ -38,7 +38,7 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .required("No password provided.")
     .min(8, "Password is too short - should be 8 chars minimum.")
-    .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+    .matches(/[a-zA-Z]/, "Password should contain at least one letter."),
   passwordConfirmation: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Required"),
@@ -54,7 +54,6 @@ const Inp = ({ plac, icon, lab, ...props }) => {
       </FormLabel>
       <Input
         {...props}
-        type="tel"
         placeholder={plac}
         w="100%"
         h="45px"
@@ -123,9 +122,7 @@ const Forms = () => {
     try {
       const google_provider = new GoogleAuthProvider();
       const user = await signInWithPopup(auth, google_provider);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   onAuthStateChanged(auth, (user) => {
