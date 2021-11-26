@@ -20,10 +20,7 @@ const Search = ({ ulShadow, searchBorder }) => {
   if (process.env.VERCEL_URL) {
     bathUrl = process.env.VERCEL_URL;
   }
-  const { data, error } = useSWR(
-    `https://cars-project-ibrahem-magdy.vercel.app/api/products?page=1&limit=18`,
-    fetcher
-  );
+  const { data, error } = useSWR("/api/products?page=1&limit=18", fetcher);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -41,8 +38,8 @@ const Search = ({ ulShadow, searchBorder }) => {
     }
   }, [search]);
 
-  if (error) return <Box></Box>;
-  if (!data) return <Box></Box>;
+  if (error) return <Box>error</Box>;
+  if (!data) return <Box>no data</Box>;
   const filteration = data.filter((e) => {
     return (
       e.product_name.toLowerCase().trim().indexOf(search.toLowerCase().trim()) >
