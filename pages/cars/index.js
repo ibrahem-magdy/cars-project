@@ -19,7 +19,7 @@ const Cars = ({ cars, count, lim }) => {
 
   const fetchCars = async (currentPage) => {
     const res = await fetch(
-      `http://localhost:3000/api/products?page=${currentPage}&limit=${limit}`
+      `${process.env.VERCEL_URL}/api/products?page=${currentPage}&limit=${limit}`
     );
     const data = await res.json();
     return data;
@@ -99,7 +99,7 @@ const Cars = ({ cars, count, lim }) => {
 export const getServerSideProps = async () => {
   const limit = 6;
   const respone = await fetch(
-    `http://localhost:3000/api/products?limit=${limit}&page=1`
+    `${process.env.VERCEL_URL}/api/products?limit=${limit}&page=1`
   );
   const cars = await respone.json();
   const total = respone.headers.get("x-total-count");
