@@ -70,7 +70,7 @@ const Home = ({ cars }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const respone = await fetch(
     "http://localhost:3000/api/products?page=1&limit=6"
   );
