@@ -52,7 +52,13 @@ const Home = ({ cars }) => {
               borderRadius="5px"
               cursor="pointer"
               transition=".3s"
-              _hover={{ textDecoration: "none", bg: "#a52222" }}
+              _hover={{
+                textDecoration: "none",
+                bg: "#a52222",
+              }}
+              _focus={{
+                boxShadow: "none",
+              }}
             >
               see all cars
             </L>
