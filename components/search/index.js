@@ -15,10 +15,7 @@ const fetcher = async (url) => {
 };
 
 const Search = ({ ulShadow, searchBorder }) => {
-  const { data, error } = useSWR(
-    "http://localhost:3000/api/products?page=1&limit=18",
-    fetcher
-  );
+  const { data, error } = useSWR("/api/products?page=1&limit=18", fetcher);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -36,8 +33,8 @@ const Search = ({ ulShadow, searchBorder }) => {
     }
   }, [search]);
 
-  if (error) return <Box>failed fetching</Box>;
-  if (!data) return <Box>loading .... </Box>;
+  if (error) return <Box></Box>;
+  if (!data) return <Box></Box>;
   const filteration = data.filter((e) => {
     return (
       e.product_name.toLowerCase().trim().indexOf(search.toLowerCase().trim()) >
