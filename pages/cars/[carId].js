@@ -136,7 +136,7 @@ export const getServerSideProps = async (context) => {
   const productId = context.params.carId;
   try {
     const response = await fetch(
-      `https://cars-project-ibrahem-magdy.vercel.app/products/${productId}`
+      `https://cars-project-ibrahem-magdy.vercel.app/api/products/${productId}`
     );
     const data = await response.json();
     return {
