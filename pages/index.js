@@ -77,7 +77,9 @@ export const getServerSideProps = async () => {
     bathUrl = process.env.VERCEL_URL;
   }
 
-  const respone = await fetch(`${bathUrl}/api/products?page=1&limit=6`);
+  const respone = await fetch(
+    `https://cars-project-ibrahem-magdy.vercel.app/api/products?page=1&limit=6`
+  );
   const cars = await respone.json();
 
   return {

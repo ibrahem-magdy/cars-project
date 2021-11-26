@@ -20,10 +20,7 @@ const Search = ({ ulShadow, searchBorder }) => {
   if (process.env.VERCEL_URL) {
     bathUrl = process.env.VERCEL_URL;
   }
-  const { data, error } = useSWR(
-    `${bathUrl}/api/products?page=1&limit=18`,
-    fetcher
-  );
+  const { data, error } = useSWR(`/api/products?page=1&limit=18`, fetcher);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const ref = useRef();
