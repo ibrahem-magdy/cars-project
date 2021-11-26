@@ -16,16 +16,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
+
 .pagination li {
   margin: 5px;
   list-style-type: none;
   user-select: none;
 }
+
 .pagination li a {
   background: rgb(27, 27, 27);
   padding: 10px 15px;
@@ -40,24 +43,29 @@ a {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
+
 .pagination li a:hover {
   background: #131417;
 }
+
 .pagination .active_page a {
   background: #c32b2b;
 }
+
 .pagination .disabled a {
   cursor: not-allowed;
   opacity: 0.5;
 }
+
 .pagination .disabled a:hover {
   background: rgb(27, 27, 27);
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 330px) {
   .grid_cars {
     grid-template-columns: repeat(1, 1fr) !important;
   }
+
   .cart_flex {
     flex-wrap: wrap;
   }
@@ -67,11 +75,13 @@ a {
   }
 
   .heading_intro {
-    font-size: 30px !important;
+    font-size: 27px !important;
   }
+
   .image_intro {
     display: none;
   }
+
   .height_intro {
     height: 60vh !important;
     min-height: 50vh !important;
@@ -80,11 +90,13 @@ a {
 
 @media only screen and (max-width: 450px) and (min-width: 330px) {
   .heading_intro {
-    font-size: 30px !important;
+    font-size: 27px !important;
   }
+
   .image_intro {
     display: none;
   }
+
   .height_intro {
     height: 60vh !important;
     min-height: 50vh !important;
@@ -127,5 +139,4 @@ a {
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}

@@ -64,7 +64,12 @@ const CarCard = ({ img, name, price, url, model, added }) => {
         <L _hover={{ textDecor: "none" }}>
           <Box p="15px" cursor="pointer">
             <Image src={img} w="100%" h="256px" objectFit="cover" alt="" />
-            <Heading as="h2" textAlign="center" my="20px" fontSize="30px">
+            <Heading
+              as="h2"
+              textAlign="center"
+              my="20px"
+              fontSize={["27px", "30px", "", ""]}
+            >
               {name}
             </Heading>
             <Text textAlign="center">

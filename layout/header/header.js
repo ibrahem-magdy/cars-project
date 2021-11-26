@@ -218,9 +218,13 @@ const Header = ({ ...props }) => {
                       text={e.text}
                       py="15px"
                       px="15px"
-                      bg={i % 2 == 0 ? "red" : "green"}
                       display="block"
-                      onClose={onClose}
+                      onClick={onClose}
+                      bg={i % 2 == 0 ? "#131417" : "transparent"}
+                      _hover={{
+                        bg: i % 2 == 0 ? "#222428" : "rgb(27,27,31)",
+                        textDecor: "none",
+                      }}
                     />
                   </ListItem>
                 );
