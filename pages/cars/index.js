@@ -18,7 +18,9 @@ const Cars = ({ cars, count, lim }) => {
   }, [limit]);
 
   const fetchCars = async (currentPage) => {
-    const res = await fetch(`/api/products?page=${currentPage}&limit=${limit}`);
+    const res = await fetch(
+      `https://cars-project-ibrahem-magdy.vercel.app/api/products?page=${currentPage}&limit=${limit}`
+    );
     const data = await res.json();
     return data;
   };
