@@ -37,8 +37,8 @@ const Search = ({ ulShadow, searchBorder }) => {
     }
   }, [search]);
 
-  if (error) return <Box>error</Box>;
-  if (!data) return <Box>no data</Box>;
+  if (error) return <Box></Box>;
+  if (!data) return <Box></Box>;
   const filteration = data.filter((e) => {
     return (
       e.product_name.toLowerCase().trim().indexOf(search.toLowerCase().trim()) >
