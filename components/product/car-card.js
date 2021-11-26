@@ -60,7 +60,12 @@ const CarCard = ({ img, name, price, url, model, added }) => {
         }}
         passHref
       >
-        <L _hover={{ textDecor: "none" }}>
+        <L
+          _hover={{ textDecor: "none" }}
+          _focus={{
+            boxShadow: "none",
+          }}
+        >
           <Box p="15px" cursor="pointer">
             <Image src={img} w="100%" h="256px" objectFit="cover" alt="" />
             <Heading
