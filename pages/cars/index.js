@@ -98,9 +98,11 @@ const Cars = ({ cars, count, lim }) => {
 
 export const getServerSideProps = async () => {
   const limit = 6;
-  const respone = await fetch(
-    `${process.env.VERCEL_URL}/api/products?limit=${limit}&page=1`
-  );
+  let bathUrl = "http://localhost:3000";
+  if (process.env.VERCEL_URL) {
+    bathUrl = process.env.VERCEL_URL;
+  }
+  const respone = await fetch(`${bathUrl}/api/products?limit=${limit}&page=1`);
   const cars = await respone.json();
   const total = respone.headers.get("x-total-count");
   const count = Math.ceil(18 / limit);

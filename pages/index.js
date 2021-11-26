@@ -71,9 +71,13 @@ const Home = ({ cars }) => {
 };
 
 export const getServerSideProps = async () => {
-  const respone = await fetch(
-    `${process.env.VERCEL_URL}/api/products?page=1&limit=6`
-  );
+  let bathUrl = "http://localhost:3000";
+
+  if (process.env.VERCEL_URL) {
+    bathUrl = process.env.VERCEL_URL;
+  }
+
+  const respone = await fetch(`${bathUrl}/api/products?page=1&limit=6`);
   const cars = await respone.json();
 
   return {
