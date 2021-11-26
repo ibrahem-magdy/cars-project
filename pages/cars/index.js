@@ -18,9 +18,7 @@ const Cars = ({ cars, count, lim }) => {
   }, [limit]);
 
   const fetchCars = async (currentPage) => {
-    const res = await fetch(
-      `${process.env.VERCEL_URL}/api/products?page=${currentPage}&limit=${limit}`
-    );
+    const res = await fetch(`/api/products?page=${currentPage}&limit=${limit}`);
     const data = await res.json();
     return data;
   };
@@ -102,7 +100,9 @@ export const getServerSideProps = async () => {
   if (process.env.VERCEL_URL) {
     bathUrl = process.env.VERCEL_URL;
   }
-  const respone = await fetch(`${bathUrl}/api/products?limit=${limit}&page=1`);
+  const respone = await fetch(
+    `https://cars-project-ibrahem-magdy.vercel.app/api/products?limit=${limit}&page=1`
+  );
   const cars = await respone.json();
   const total = respone.headers.get("x-total-count");
   const count = Math.ceil(18 / limit);

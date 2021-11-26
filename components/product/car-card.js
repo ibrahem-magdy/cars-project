@@ -36,14 +36,14 @@ const CarCard = ({ img, name, price, url, model, added }) => {
     return (today = mm + "/" + dd + "/" + yyyy);
   }
 
-  const update = async (id, data) => {
-    const res = await fetch(`http://localhost:4000/products/${id}`, {
-      method: "put",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    // await router.push(`/${router.pathname}`);
-  };
+  // const update = async (id, data) => {
+  //   const res = await fetch(`http://localhost:4000/products/${id}`, {
+  //     method: "put",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   });
+  //   // await router.push(`/${router.pathname}`);
+  // };
 
   return (
     <Box
@@ -114,14 +114,14 @@ const CarCard = ({ img, name, price, url, model, added }) => {
         onClick={() => {
           addCar(url, img, name, getDate());
           setAdd(true);
-          update(url, {
-            id: url,
-            product_image: img,
-            product_name: name,
-            product_price: price,
-            model: model,
-            added: { add: "true", date: getDate() },
-          });
+          // update(url, {
+          //   id: url,
+          //   product_image: img,
+          //   product_name: name,
+          //   product_price: price,
+          //   model: model,
+          //   added: { add: "true", date: getDate() },
+          // });
         }}
       >
         {present || add ? "Added to cart" : "Add to cart "}
