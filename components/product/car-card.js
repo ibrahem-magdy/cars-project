@@ -18,7 +18,6 @@ const CarCard = ({ img, name, price, url, model, added }) => {
 
   const router = useRouter();
   const { cars, addCar } = useContext(CarContext);
-  console.log(addCar);
 
   useEffect((e) => {
     cars.map((e) => {

@@ -34,7 +34,6 @@ const Search = ({ ulShadow, searchBorder }) => {
     };
     if (search == "") {
       setOpen(false);
-      console.log("no items");
     }
   }, [search]);
 

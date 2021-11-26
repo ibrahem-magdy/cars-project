@@ -31,7 +31,6 @@ const Inp = ({ plac, icon, lab, ...props }) => {
       </FormLabel>
       <Input
         {...props}
-        type="tel"
         placeholder={plac}
         w="100%"
         h="45px"

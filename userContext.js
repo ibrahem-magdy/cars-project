@@ -20,7 +20,6 @@ const User = ({ children }) => {
   const updateUser = (update) => {
     setUser(update);
   };
-  console.log(user);
 
   return <UserProvider value={{ user, updateUser }}>{children}</UserProvider>;
 };
